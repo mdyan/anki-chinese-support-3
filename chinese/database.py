@@ -91,9 +91,9 @@ class Dictionary:
 
     def _get_word_jyutping(self, word, type_):
         if type_ == 'trad':
-            query = 'SELECT jyutping FROM cidian WHERE traditional=?'
+            query = 'SELECT jyutping FROM cidian WHERE traditional=? AND jyutping NOT NULL'
         elif type_ == 'simp':
-            query = 'SELECT jyutping FROM cidian WHERE simplified=?'
+            query = 'SELECT jyutping FROM cidian WHERE simplified=? AND jyutping NOT NULL'
         self.c.execute(query, (word,))
         res = self.c.fetchone()
         if not res:
