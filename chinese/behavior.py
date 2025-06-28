@@ -188,7 +188,7 @@ def fill_transcript(hanzi, note):
 
 
 def reformat_transcript(note, group, target):
-    if target == 'bopomofo':
+    if target == 'bopomofo' or target == 'jyutping':
         return
 
     transcript = get_first(config['fields'][group], note)
